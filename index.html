@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 换脸工具</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI 换脸工具</h1>
+            <p>上传底图和目标脸图，一键生成换脸效果</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-container" id="original-container">
+                    <h2>上传底图</h2>
+                    <p class="description">保留底图中除脸部以外的区域</p>
+                    <div class="upload-area" id="original-upload">
+                        <i class="fas fa-image"></i>
+                        <p>点击上传图片</p>
+                        <input type="file" id="original-input" accept="image/*">
+                    </div>
+                    <div class="preview" id="original-preview" style="display: none;">
+                        <img id="original-img" src="" alt="底图预览">
+                        <button class="remove-btn" id="remove-original"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+
+                <div class="upload-container" id="target-container">
+                    <h2>上传目标脸图</h2>
+                    <p class="description">将此脸部替换到底图中</p>
+                    <div class="upload-area" id="target-upload">
+                        <i class="fas fa-image"></i>
+                        <p>点击上传图片</p>
+                        <input type="file" id="target-input" accept="image/*">
+                    </div>
+                    <div class="preview" id="target-preview" style="display: none;">
+                        <img id="target-img" src="" alt="目标脸图预览">
+                        <button class="remove-btn" id="remove-target"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-section">
+                <button id="swap-btn" class="primary-btn" disabled>开始换脸</button>
+            </div>
+
+            <div class="result-section" id="result-section" style="display: none;">
+                <h2>换脸结果</h2>
+                <div class="result-container">
+                    <div class="loading" id="loading-indicator">
+                        <div class="spinner"></div>
+                        <p>正在处理中，请稍候...</p>
+                    </div>
+                    <div class="result-image" id="result-image" style="display: none;">
+                        <img id="result-img" src="" alt="换脸结果">
+                        <div class="result-actions">
+                            <button id="enhance-btn" class="secondary-btn">高清修复</button>
+                            <button id="download-btn" class="secondary-btn">下载图片</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <h2>历史记录</h2>
+                <div class="history-container" id="history-container">
+                    <!-- 历史记录将在这里动态生成 -->
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2023 AI 换脸工具 | 仅供学习和研究使用</p>
+        </footer>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="upload.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
